@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatiable=" content="IE=edge">
+    <meta name="viewport" content="width=device-width, intial-scaled=1.0">
+    <title>ThreadHub.com</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/df2a231060.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+ 
+    <?php
+
+if ($user) {
+    echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Error</strong> User already exist
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>';
+}
+?>
+
+<?php
+
+if ($succes) {
+    echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Succes</strong> You are succesfully signed up.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>';
+}
+?>
+
+    <div class="container">
+        <div class="form-box">
+            <h1 id="tittle">Sign up</h1>
+            <form>
+                <div class="input-group">
+
+
+                    <div class="input-feild" id="namefeild">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Name">
+                    </div>
+
+                    <div class="input-feild">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" placeholder="E-mail">
+
+                    </div>
+
+                    <div class="input-feild">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" placeholder="Password">
+                    </div>
+                    
+                    <a href="#"<p>Forget Password</p></a>
+                </div>
+
+                <div class="btn-field">
+                    <button type="button" id="signupbtn">Sign Up</button>
+                    <button type="button" id="signinbtn" class="disable">Sign In</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        let signinbtn = document.getElementById("signinbtn");
+        let signupbtn = document.getElementById("signupbtn");
+        let namefeild = document.getElementById("namefeild");
+        let tittle = document.getElementById("tittle");
+
+        signinbtn.onclick = function() {
+            namefeild.style.maxHeight = "0";
+            tittle.innerHTML= "Sign In";
+            signupbtn.classList.add("disable");
+            signinbtn.classList.remove("disable");
+        }
+
+        signupbtn.onclick = function() {
+            namefeild.style.maxHeight = "60px";
+            tittle.innerHTML= "Sign Up";
+            signupbtn.classList.remove("disable");
+            signinbtn.classList.add("disable");
+        }
+    </script>
+
+</body>
+
+</html>
